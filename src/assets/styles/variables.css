@@ -1,0 +1,65 @@
+/* =========================================================
+   Style Guide SIM Bakoel Bunda
+   Warna diambil dari dapur dimsum: daun pisang alas kukusan,
+   uap, bambu kukusan, dan sambal. Semua komponen memakai token ini.
+   ========================================================= */
+:root {
+  /* Palet warna */
+  --color-primary: #1e5a3c;        /* daun pisang: tombol utama, navigasi */
+  --color-primary-dark: #154530;
+  --color-primary-soft: #dfeae2;
+  --color-secondary: #c99a4b;      /* bambu kukusan */
+  --color-secondary-soft: #f3e9d3;
+  --color-chili: #c8321f;          /* sambal: nomor antrean dan harga */
+  --color-success: #2f8f5b;
+  --color-success-soft: #e0f1e6;
+  --color-warning: #b7791f;
+  --color-warning-soft: #f8ecd4;
+  --color-danger: #c8321f;
+  --color-danger-soft: #f8e1dc;
+  --color-info: #2a6f97;
+  --color-info-soft: #dfecf3;
+
+  /* Netral */
+  --color-bg: #eef3ee;             /* uap */
+  --color-surface: #ffffff;
+  --color-border: #d5ddd6;
+  --color-border-strong: #b6c2b8;
+  --color-text: #1c2621;           /* tinta */
+  --color-text-muted: #5b6a61;
+
+  /* Tipografi */
+  --font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Poppins', system-ui, sans-serif;
+  --font-weight-display: 700;
+  --font-size-display: 32px;
+  --font-size-title: 25px;
+  --font-size-subtitle: 20px;
+  --font-size-lead: 16px;
+  --font-size-body: 15px;
+  --font-size-small: 13px;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  /* Jarak (kelipatan 4px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+
+  /* Bentuk: kontrol lebih kecil dari panel */
+  --radius-sm: 4px;
+  --radius-md: 8px;                /* tombol, input */
+  --radius-lg: 14px;               /* panel, kartu */
+  --shadow-sm: none;
+  --shadow-md: 0 12px 32px rgba(21, 69, 48, 0.18);
+  --focus-ring: 0 0 0 2px var(--color-surface), 0 0 0 4px var(--color-secondary);
+  --sidebar-width: 232px;
+  --header-height: 64px;
+  --transition: 150ms ease;
+}

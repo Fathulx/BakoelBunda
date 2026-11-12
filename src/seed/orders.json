@@ -1,0 +1,353 @@
+[
+  {
+    "id": "ord-001",
+    "invoiceNo": "BKB-20261109-0001",
+    "queueNo": 1,
+    "customerId": "cus-001",
+    "customerName": "Andi",
+    "customerPhone": "081211110001",
+    "orderType": "ambil",
+    "address": "",
+    "deliveryDate": "2026-11-10",
+    "note": "",
+    "paymentMethod": "cod",
+    "paymentStatus": "lunas",
+    "paidAt": "2026-11-10T04:00:00.000Z",
+    "items": [
+      {
+        "productId": "prd-001",
+        "name": "Dimsum Ayam Saus Biasa",
+        "price": 18000,
+        "qty": 2,
+        "subtotal": 36000
+      }
+    ],
+    "total": 36000,
+    "status": "selesai",
+    "handledById": "usr-002",
+    "handledByName": "Rina (Admin)",
+    "createdAt": "2026-11-09T03:00:00.000Z",
+    "confirmedAt": "2026-11-09T03:30:00.000Z",
+    "readyAt": "2026-11-10T03:00:00.000Z",
+    "completedAt": "2026-11-10T04:00:00.000Z",
+    "cancelledAt": null
+  },
+  {
+    "id": "ord-002",
+    "invoiceNo": "BKB-20261109-0002",
+    "queueNo": 2,
+    "customerId": "cus-002",
+    "customerName": "Sari",
+    "customerPhone": "081211110002",
+    "orderType": "antar",
+    "address": "Jl. Kenanga No. 5, RT 02/RW 04, dekat warung Bu Siti",
+    "deliveryDate": "2026-11-10",
+    "note": "",
+    "paymentMethod": "transfer",
+    "paymentStatus": "lunas",
+    "paidAt": "2026-11-09T07:15:00.000Z",
+    "items": [
+      {
+        "productId": "prd-001",
+        "name": "Dimsum Ayam Saus Biasa",
+        "price": 18000,
+        "qty": 1,
+        "subtotal": 18000
+      },
+      {
+        "productId": "prd-002",
+        "name": "Dimsum Ayam Saus Bolognese Daging",
+        "price": 25000,
+        "qty": 2,
+        "subtotal": 50000
+      }
+    ],
+    "total": 68000,
+    "status": "selesai",
+    "handledById": "usr-002",
+    "handledByName": "Rina (Admin)",
+    "createdAt": "2026-11-09T06:15:00.000Z",
+    "confirmedAt": "2026-11-09T06:45:00.000Z",
+    "readyAt": "2026-11-10T03:00:00.000Z",
+    "completedAt": "2026-11-10T05:00:00.000Z",
+    "cancelledAt": null
+  },
+  {
+    "id": "ord-003",
+    "invoiceNo": "BKB-20261110-0001",
+    "queueNo": 1,
+    "customerId": "cus-003",
+    "customerName": "Bu Rahma",
+    "customerPhone": "081211110003",
+    "orderType": "antar",
+    "address": "Jl. Kenanga No. 5, RT 02/RW 04, dekat warung Bu Siti",
+    "deliveryDate": "2026-11-11",
+    "note": "",
+    "paymentMethod": "transfer",
+    "paymentStatus": "lunas",
+    "paidAt": "2026-11-10T03:30:00.000Z",
+    "items": [
+      {
+        "productId": "prd-002",
+        "name": "Dimsum Ayam Saus Bolognese Daging",
+        "price": 25000,
+        "qty": 4,
+        "subtotal": 100000
+      }
+    ],
+    "total": 100000,
+    "status": "selesai",
+    "handledById": "usr-002",
+    "handledByName": "Rina (Admin)",
+    "createdAt": "2026-11-10T02:30:00.000Z",
+    "confirmedAt": "2026-11-10T03:00:00.000Z",
+    "readyAt": "2026-11-11T03:00:00.000Z",
+    "completedAt": "2026-11-11T06:00:00.000Z",
+    "cancelledAt": null
+  },
+  {
+    "id": "ord-004",
+    "invoiceNo": "BKB-20261110-0002",
+    "queueNo": 2,
+    "customerId": "cus-004",
+    "customerName": "Dimas",
+    "customerPhone": "081211110004",
+    "orderType": "ambil",
+    "address": "",
+    "deliveryDate": "2026-11-11",
+    "note": "",
+    "paymentMethod": "cod",
+    "paymentStatus": "belum_bayar",
+    "paidAt": null,
+    "items": [
+      {
+        "productId": "prd-001",
+        "name": "Dimsum Ayam Saus Biasa",
+        "price": 18000,
+        "qty": 3,
+        "subtotal": 54000
+      }
+    ],
+    "total": 54000,
+    "status": "dibatalkan",
+    "handledById": "usr-002",
+    "handledByName": "Rina (Admin)",
+    "createdAt": "2026-11-10T09:00:00.000Z",
+    "confirmedAt": "2026-11-10T09:30:00.000Z",
+    "readyAt": null,
+    "completedAt": null,
+    "cancelledAt": "2026-11-10T09:30:00.000Z"
+  },
+  {
+    "id": "ord-005",
+    "invoiceNo": "BKB-20261111-0001",
+    "queueNo": 1,
+    "customerId": "cus-002",
+    "customerName": "Sari",
+    "customerPhone": "081211110002",
+    "orderType": "antar",
+    "address": "Jl. Kenanga No. 5, RT 02/RW 04, dekat warung Bu Siti",
+    "deliveryDate": "2026-11-12",
+    "note": "",
+    "paymentMethod": "transfer",
+    "paymentStatus": "lunas",
+    "paidAt": "2026-11-11T05:00:00.000Z",
+    "items": [
+      {
+        "productId": "prd-001",
+        "name": "Dimsum Ayam Saus Biasa",
+        "price": 18000,
+        "qty": 2,
+        "subtotal": 36000
+      }
+    ],
+    "total": 36000,
+    "status": "selesai",
+    "handledById": "usr-002",
+    "handledByName": "Rina (Admin)",
+    "createdAt": "2026-11-11T04:00:00.000Z",
+    "confirmedAt": "2026-11-11T04:30:00.000Z",
+    "readyAt": "2026-11-12T03:00:00.000Z",
+    "completedAt": "2026-11-12T04:00:00.000Z",
+    "cancelledAt": null
+  },
+  {
+    "id": "ord-006",
+    "invoiceNo": "BKB-20261111-0002",
+    "queueNo": 2,
+    "customerId": "cus-001",
+    "customerName": "Andi",
+    "customerPhone": "081211110001",
+    "orderType": "ambil",
+    "address": "",
+    "deliveryDate": "2026-11-12",
+    "note": "",
+    "paymentMethod": "cod",
+    "paymentStatus": "belum_bayar",
+    "paidAt": null,
+    "items": [
+      {
+        "productId": "prd-001",
+        "name": "Dimsum Ayam Saus Biasa",
+        "price": 18000,
+        "qty": 2,
+        "subtotal": 36000
+      },
+      {
+        "productId": "prd-002",
+        "name": "Dimsum Ayam Saus Bolognese Daging",
+        "price": 25000,
+        "qty": 1,
+        "subtotal": 25000
+      }
+    ],
+    "total": 61000,
+    "status": "siap",
+    "handledById": "usr-002",
+    "handledByName": "Rina (Admin)",
+    "createdAt": "2026-11-11T13:40:00.000Z",
+    "confirmedAt": "2026-11-11T14:10:00.000Z",
+    "readyAt": "2026-11-12T03:00:00.000Z",
+    "completedAt": null,
+    "cancelledAt": null
+  },
+  {
+    "id": "ord-007",
+    "invoiceNo": "BKB-20261111-0003",
+    "queueNo": 1,
+    "customerId": "cus-003",
+    "customerName": "Bu Rahma",
+    "customerPhone": "081211110003",
+    "orderType": "antar",
+    "address": "Jl. Kenanga No. 5, RT 02/RW 04, dekat warung Bu Siti",
+    "deliveryDate": "2026-11-13",
+    "note": "Saus dipisah",
+    "paymentMethod": "transfer",
+    "paymentStatus": "lunas",
+    "paidAt": "2026-11-11T08:10:00.000Z",
+    "items": [
+      {
+        "productId": "prd-001",
+        "name": "Dimsum Ayam Saus Biasa",
+        "price": 18000,
+        "qty": 4,
+        "subtotal": 72000
+      },
+      {
+        "productId": "prd-002",
+        "name": "Dimsum Ayam Saus Bolognese Daging",
+        "price": 25000,
+        "qty": 2,
+        "subtotal": 50000
+      }
+    ],
+    "total": 122000,
+    "status": "diproses",
+    "handledById": "usr-002",
+    "handledByName": "Rina (Admin)",
+    "createdAt": "2026-11-11T07:10:00.000Z",
+    "confirmedAt": "2026-11-11T07:40:00.000Z",
+    "readyAt": null,
+    "completedAt": null,
+    "cancelledAt": null
+  },
+  {
+    "id": "ord-008",
+    "invoiceNo": "BKB-20261112-0001",
+    "queueNo": 2,
+    "customerId": "cus-004",
+    "customerName": "Dimas",
+    "customerPhone": "081211110004",
+    "orderType": "ambil",
+    "address": "",
+    "deliveryDate": "2026-11-13",
+    "note": "",
+    "paymentMethod": "cod",
+    "paymentStatus": "belum_bayar",
+    "paidAt": null,
+    "items": [
+      {
+        "productId": "prd-002",
+        "name": "Dimsum Ayam Saus Bolognese Daging",
+        "price": 25000,
+        "qty": 2,
+        "subtotal": 50000
+      }
+    ],
+    "total": 50000,
+    "status": "diproses",
+    "handledById": "usr-002",
+    "handledByName": "Rina (Admin)",
+    "createdAt": "2026-11-12T01:00:00.000Z",
+    "confirmedAt": "2026-11-12T01:30:00.000Z",
+    "readyAt": null,
+    "completedAt": null,
+    "cancelledAt": null
+  },
+  {
+    "id": "ord-009",
+    "invoiceNo": "BKB-20261112-0002",
+    "queueNo": 3,
+    "customerId": "cus-001",
+    "customerName": "Andi",
+    "customerPhone": "081211110001",
+    "orderType": "antar",
+    "address": "Jl. Kenanga No. 5, RT 02/RW 04, dekat warung Bu Siti",
+    "deliveryDate": "2026-11-13",
+    "note": "",
+    "paymentMethod": "transfer",
+    "paymentStatus": "belum_bayar",
+    "paidAt": null,
+    "items": [
+      {
+        "productId": "prd-001",
+        "name": "Dimsum Ayam Saus Biasa",
+        "price": 18000,
+        "qty": 3,
+        "subtotal": 54000
+      }
+    ],
+    "total": 54000,
+    "status": "menunggu",
+    "handledById": null,
+    "handledByName": null,
+    "createdAt": "2026-11-12T02:30:00.000Z",
+    "confirmedAt": null,
+    "readyAt": null,
+    "completedAt": null,
+    "cancelledAt": null
+  },
+  {
+    "id": "ord-010",
+    "invoiceNo": "BKB-20261112-0003",
+    "queueNo": 1,
+    "customerId": "cus-002",
+    "customerName": "Sari",
+    "customerPhone": "081211110002",
+    "orderType": "ambil",
+    "address": "",
+    "deliveryDate": "2026-11-14",
+    "note": "",
+    "paymentMethod": "cod",
+    "paymentStatus": "belum_bayar",
+    "paidAt": null,
+    "items": [
+      {
+        "productId": "prd-002",
+        "name": "Dimsum Ayam Saus Bolognese Daging",
+        "price": 25000,
+        "qty": 1,
+        "subtotal": 25000
+      }
+    ],
+    "total": 25000,
+    "status": "menunggu",
+    "handledById": null,
+    "handledByName": null,
+    "createdAt": "2026-11-12T02:45:00.000Z",
+    "confirmedAt": null,
+    "readyAt": null,
+    "completedAt": null,
+    "cancelledAt": null
+  }
+]

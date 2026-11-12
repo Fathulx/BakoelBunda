@@ -1,0 +1,10 @@
+node_modules
+dist
+.DS_Store
+*.log
+
+# Berisi username & kata sandi akun, jangan di-push
+AKUN_LOGIN.md
+
+# Folder kerja sementara
+.superpowers/

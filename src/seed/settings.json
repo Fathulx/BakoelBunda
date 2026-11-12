@@ -1,0 +1,11 @@
+{
+  "businessWhatsApp": "081234567890",
+  "pickupAddress": "Jl. Melati No. 12, RT 03/RW 05 (rumah pagar hijau, dekat masjid). Ganti dengan alamat asli.",
+  "orderCutoffTime": "20:00",
+  "maxDaysAhead": 7,
+  "handoverStart": "10:00",
+  "handoverEnd": "17:00",
+  "bankName": "BCA",
+  "bankAccountNo": "1234567890",
+  "bankAccountName": "Bunda"
+}

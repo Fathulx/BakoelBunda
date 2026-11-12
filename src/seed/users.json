@@ -1,0 +1,29 @@
+[
+  {
+    "id": "usr-001",
+    "name": "Bunda (Owner)",
+    "username": "owner",
+    "password": "owner123",
+    "role": "owner",
+    "isActive": true,
+    "createdAt": "2026-11-01T01:00:00.000Z"
+  },
+  {
+    "id": "usr-002",
+    "name": "Rina (Admin)",
+    "username": "admin",
+    "password": "admin123",
+    "role": "admin",
+    "isActive": true,
+    "createdAt": "2026-11-01T01:05:00.000Z"
+  },
+  {
+    "id": "usr-003",
+    "name": "Dewi Dapur",
+    "username": "dapur",
+    "password": "dapur123",
+    "role": "dapur",
+    "isActive": true,
+    "createdAt": "2026-11-01T01:10:00.000Z"
+  }
+]
