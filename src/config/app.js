@@ -88,8 +88,9 @@ export const PAYMENT_METHOD = {
 }
 
 export const PAYMENT_METHOD_OPTIONS = [
-  { value: PAYMENT_METHOD.PREPAID, label: 'Bayar di muka (transfer bank)', short: 'Transfer' },
-  { value: PAYMENT_METHOD.ON_DELIVERY, label: 'Bayar saat diterima', short: 'Bayar di tempat' }
+  // label: teks lengkap (struk, detail); choice: teks singkat di tombol pilihan; short: kolom tabel/kartu.
+  { value: PAYMENT_METHOD.PREPAID, label: 'Bayar di muka (transfer bank)', choice: 'Transfer di muka', short: 'Transfer' },
+  { value: PAYMENT_METHOD.ON_DELIVERY, label: 'Bayar saat diterima', choice: 'Bayar saat diterima', short: 'Bayar di tempat' }
 ]
 
 /** Status bayar ditandai manual oleh Admin (tanpa upload bukti transfer). */

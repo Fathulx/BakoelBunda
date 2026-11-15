@@ -113,7 +113,7 @@ const paymentHint = computed(() => {
       <div class="segmented">
         <label v-for="option in PAYMENT_METHOD_OPTIONS" :key="option.value" class="segmented__item">
           <input v-model="form.paymentMethod" type="radio" name="paymentMethod" :value="option.value" />
-          <span>{{ option.label }}</span>
+          <span>{{ option.choice ?? option.label }}</span>
         </label>
       </div>
       <p class="text-muted text-small">{{ paymentHint }}</p>
@@ -167,6 +167,11 @@ const paymentHint = computed(() => {
   gap: var(--space-2);
 }
 
+/* Kedua pilihan selalu sama tinggi, walau salah satu teksnya turun ke baris kedua. */
+.segmented__item {
+  display: flex;
+}
+
 .segmented__item input {
   position: absolute;
   opacity: 0;
@@ -174,8 +179,13 @@ const paymentHint = computed(() => {
 }
 
 .segmented__item span {
-  display: block;
-  padding: 10px 8px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 8px;
+  line-height: 1.3;
   text-align: center;
   border: 1px solid var(--color-border-strong);
   border-radius: var(--radius-md);

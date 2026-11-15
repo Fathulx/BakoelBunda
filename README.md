@@ -80,28 +80,29 @@ Nilai yang bisa berubah tidak ditulis di kode, tetapi disimpan sebagai data **Pe
 src/
 ├── assets/styles/        # variables.css (style guide) dan base.css
 ├── components/
-│   ├── common/           # komponen reusable: BaseButton, BaseInput, BaseTable, BaseModal, dll.
+│   ├── common/           # komponen reusable: BaseButton, BaseInput, BaseTable, BaseModal, QtyStepper, AppIcon, dll.
 │   ├── layout/           # AppLayout, AppSidebar, AppHeader, CustomerLayout
 │   └── features/         # komponen per fitur
 │       ├── cart/         # CartPanel, CartItem
 │       ├── customer/     # CustomerCheckoutForm, OrderProgress, OrderReceipt, PaymentInstructions
-│       ├── customers/    # CustomerTable
+│       ├── customers/    # CustomerTable, CustomerDetail, CustomerOrderItem
 │       ├── dashboard/    # TopProductList, LowStockList
 │       ├── kitchen/      # ProductionSummary
 │       ├── orders/       # OrderCard, OrderContact, OrderTable, OrderDetail, OrderFilter, badge status
 │       ├── products/     # ProductTable, ProductForm, MenuCard, StockIndicator
 │       ├── settings/     # SettingsForm
 │       └── users/        # UserTable, UserForm
-├── composables/          # useCustomerOrders, useFormModal, useNow
+├── composables/          # useCustomerOrders, useCustomerProfile, useFormModal, useNow
 ├── config/               # app.js (konstanta, role, status, batas validasi), navigation.js (menu sidebar)
 ├── router/               # definisi route + guard role
 ├── seed/                 # data awal JSON: users, products, customers, orders, settings
 ├── services/             # storage.js (akses localStorage + versi data)
 ├── stores/               # Pinia: auth, users, products, customers, orders, cart, settings, toast
-├── utils/                # format, validators, orderDates (aturan tanggal PO), id
+├── utils/                # format, validators, orderDates (aturan tanggal PO), seedDates, id
 └── views/                # halaman per role: auth, owner, admin, dapur, customer, shared
-tests/                    # Vitest: services, utils, stores, smoke test semua halaman
-docs/perancangan.md       # bahan laporan: component tree, API, ERD, style guide, skenario uji
+tests/                    # Vitest: services, utils, stores, components, smoke test semua halaman
+docs/perancangan.md       # bahan laporan Bab 1, 2, 3.2, 5: analisis, component tree, API, ERD, style guide, seed, skenario uji
+docs/log-agentic-ai.md    # bahan laporan Bab 4: urutan prompt Agentic AI
 ```
 
 ## Alur Data Seed dan localStorage
@@ -113,7 +114,7 @@ docs/perancangan.md       # bahan laporan: component tree, API, ERD, style guide
 5. Setiap store memakai `watch(..., { deep: true })`, jadi semua aksi tambah, ubah, hapus, dan perubahan status otomatis tersimpan kembali ke `localStorage`. Perubahan dari tab lain diterima lewat event `storage`, termasuk sesi login (keluar di satu tab = keluar di semua tab) dan keranjang pembeli. Halaman yang memakai tanggal (dashboard, pemesanan, antrean) ikut berganti hari sendiri setelah tengah malam.
 6. Tombol **Reset Data Demo** di Dashboard Owner menghapus semua kunci `bakoelbunda_*`, lalu data dimuat ulang dari seed.
 
-Kunci `localStorage`: `bakoelbunda_users`, `bakoelbunda_products`, `bakoelbunda_customers`, `bakoelbunda_orders`, `bakoelbunda_settings`, `bakoelbunda_customer_cart`, `bakoelbunda_customer_order_ids`, `bakoelbunda_session`, `bakoelbunda_data_version`.
+Kunci `localStorage`: `bakoelbunda_users`, `bakoelbunda_products`, `bakoelbunda_customers`, `bakoelbunda_orders`, `bakoelbunda_settings`, `bakoelbunda_customer_cart`, `bakoelbunda_customer_order_ids`, `bakoelbunda_customer_profile`, `bakoelbunda_session`, `bakoelbunda_data_version`.
 
 ## Validasi (Bahan Skenario Uji Negatif)
 
