@@ -5,7 +5,8 @@ import {
   earliestDeliveryDate,
   latestDeliveryDate,
   deliveryDateError,
-  isLateOrder
+  isLateOrder,
+  relativeDayLabel
 } from '@/utils/orderDates'
 
 const settings = { orderCutoffTime: '20:00', maxDaysAhead: 7 }
@@ -77,5 +78,21 @@ describe('isLateOrder', () => {
   })
   it('dibuat malam untuk tanggal yang lebih jauh = bukan susulan', () => {
     expect(isLateOrder(order(at(12, 21), '2026-11-15'), settings)).toBe(false)
+  })
+})
+
+describe('relativeDayLabel', () => {
+  const today = '2026-11-15'
+  it('hari ini, besok, dan beberapa hari lagi', () => {
+    expect(relativeDayLabel('2026-11-15', today)).toEqual({ label: 'Hari ini', tone: 'warning' })
+    expect(relativeDayLabel('2026-11-16', today)).toEqual({ label: 'Besok', tone: 'primary' })
+    expect(relativeDayLabel('2026-11-18', today)).toEqual({ label: '3 hari lagi', tone: 'neutral' })
+  })
+  it('lewat tanggal = terlambat (merah)', () => {
+    expect(relativeDayLabel('2026-11-14', today)).toEqual({ label: 'Terlambat 1 hari', tone: 'danger' })
+    expect(relativeDayLabel('2026-11-12', today)).toEqual({ label: 'Terlambat 3 hari', tone: 'danger' })
+  })
+  it('melewati batas bulan', () => {
+    expect(relativeDayLabel('2026-12-01', '2026-11-30')).toEqual({ label: 'Besok', tone: 'primary' })
   })
 })

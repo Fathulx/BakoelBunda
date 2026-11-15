@@ -52,5 +52,20 @@ export function isLateOrder(order, settings) {
   return toDateKey(created) === addDays(order.deliveryDate, -1) && isPastCutoff(created, settings.orderCutoffTime)
 }
 
+/** Selisih hari kalender dari `fromKey` ke `toKey` (bisa negatif). */
+export const daysBetween = (fromKey, toKey) => Math.round((fromDateKey(toKey) - fromDateKey(fromKey)) / 86400000)
+
+/**
+ * Label tanggal relatif untuk kartu pesanan, beserta warna badge-nya.
+ * Contoh: "Hari ini", "Besok", "3 hari lagi", "Terlambat 2 hari".
+ */
+export function relativeDayLabel(dateKey, todayKey) {
+  const days = daysBetween(todayKey, dateKey)
+  if (days < 0) return { label: `Terlambat ${-days} hari`, tone: 'danger' }
+  if (days === 0) return { label: 'Hari ini', tone: 'warning' }
+  if (days === 1) return { label: 'Besok', tone: 'primary' }
+  return { label: `${days} hari lagi`, tone: 'neutral' }
+}
+
 /** Contoh: "Jumat, 13 November 2026" dari "2026-11-13". */
 export const formatDeliveryDate = (dateKey) => (dateKey ? formatLongDate(fromDateKey(dateKey)) : '-')

@@ -71,7 +71,7 @@ function onInput(event) {
 
 .field__control {
   padding: 9px 12px;
-  border: 1px solid var(--color-border);
+  border: 1px solid var(--color-input-border);
   border-radius: var(--radius-md);
   background: var(--color-surface);
   transition: border-color var(--transition), box-shadow var(--transition);

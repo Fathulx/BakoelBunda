@@ -10,6 +10,7 @@ import { useOrdersStore } from '@/stores/orders'
 import { NAVIGATION } from '@/config/navigation'
 import { APP_CONFIG } from '@/config/app'
 import BrandMark from '@/components/common/BrandMark.vue'
+import AppIcon from '@/components/common/AppIcon.vue'
 
 defineProps({
   open: { type: Boolean, default: false }
@@ -43,7 +44,10 @@ const counts = computed(() => ({ 'order-active': orders.pendingOrders.length }))
         class="sidebar__link"
         active-class="sidebar__link--active"
       >
-        <span>{{ item.label }}</span>
+        <span class="sidebar__label">
+          <AppIcon :name="item.icon" :size="19" />
+          {{ item.label }}
+        </span>
         <span
           v-if="counts[item.routeName]"
           class="sidebar__count"
@@ -68,20 +72,27 @@ const counts = computed(() => ({ 'order-active': orders.pendingOrders.length }))
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  height: var(--header-height);
-  padding: 0 var(--space-5);
+  /* Tinggi minimal sama dengan header, tapi boleh bertambah supaya judul tidak terpotong. */
+  min-height: var(--header-height);
+  padding: var(--space-3) var(--space-4);
+}
+
+.sidebar__brand > div {
+  min-width: 0;
 }
 
 .sidebar__name {
   font-family: var(--font-display);
   font-weight: var(--font-weight-display);
-  font-size: 21px;
-  line-height: 1.1;
+  font-size: 18px;
+  line-height: 1.2;
   color: #fff;
+  white-space: nowrap;
 }
 
 .sidebar__tagline {
-  font-size: var(--font-size-small);
+  font-size: 12px;
+  line-height: 1.3;
   color: #b9cdbf;
 }
 
@@ -103,6 +114,12 @@ const counts = computed(() => ({ 'order-active': orders.pendingOrders.length }))
   color: #cfdfd4;
   font-weight: var(--font-weight-medium);
   transition: background var(--transition), color var(--transition);
+}
+
+.sidebar__label {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
 }
 
 .sidebar__link:hover {

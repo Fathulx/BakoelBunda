@@ -135,7 +135,7 @@ describe('smoke: semua halaman tampil', () => {
       vi.advanceTimersByTime(60_000) // lewat tengah malam → 13 Nov, besok = 14 Nov
       await flushPromises()
       expect(wrapper.text()).toContain('0 porsi dikonfirmasi, 1 menunggu konfirmasi')
-      expect(wrapper.text()).toContain('13 Nov 2026')
+      expect(wrapper.text()).toContain('Ringkasan hari ini, 13 Nov 2026')
       wrapper.unmount()
     } finally {
       vi.useRealTimers()
@@ -164,6 +164,55 @@ describe('smoke: semua halaman tampil', () => {
     } finally {
       wrapper.unmount()
       localStorage.removeItem(sessionKey)
+    }
+  })
+
+  it('pelanggan langganan: form pesan terisi dari pesanan terakhir', async () => {
+    localStorage.setItem('bakoelbunda_customer_profile', JSON.stringify({ customerName: 'Budi', customerPhone: '089911112222' }))
+    const pinia = createPinia()
+    setActivePinia(pinia)
+    vi.resetModules()
+    const { default: router } = await import('@/router')
+    router.push('/pesan')
+    await router.isReady()
+    const wrapper = mount(App, { global: { plugins: [pinia, router] } })
+    await flushPromises()
+    try {
+      expect(wrapper.text()).toContain('Data diisi dari pesanan terakhir')
+      const values = wrapper.findAll('input').map((input) => input.element.value)
+      expect(values).toContain('Budi')
+      expect(values).toContain('089911112222')
+
+      await wrapper.find('.saved-profile__clear').trigger('click')
+      const cleared = wrapper.findAll('input').map((input) => input.element.value)
+      expect(cleared).not.toContain('Budi')
+    } finally {
+      wrapper.unmount()
+    }
+  })
+
+  it('Pesanan Aktif: label Hari ini/Besok tampil dan tautan Tandai lunas mengubah status bayar', async () => {
+    const pinia = createPinia()
+    setActivePinia(pinia)
+    useAuthStore().login(ADMIN.username, ADMIN.password)
+    vi.resetModules()
+    const { default: router } = await import('@/router')
+    router.push('/pesanan/aktif')
+    await router.isReady()
+    const wrapper = mount(App, { global: { plugins: [pinia, router] } })
+    await flushPromises()
+    try {
+      // Data contoh digeser ke hari ini: ada pesanan untuk hari ini (siap) dan besok (baru/diproses).
+      expect(wrapper.text()).toContain('Hari ini')
+      expect(wrapper.text()).toContain('Besok')
+
+      const before = wrapper.findAll('.order-card__paid-link').length
+      await wrapper.find('.order-card__paid-link').trigger('click')
+      await flushPromises()
+      expect(wrapper.findAll('.order-card__paid-link').length).toBe(before - 1)
+      expect(wrapper.text()).toContain('ditandai lunas')
+    } finally {
+      wrapper.unmount()
     }
   })
 

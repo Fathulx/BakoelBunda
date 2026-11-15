@@ -35,6 +35,13 @@ export const formatTime = (iso) => (iso ? timeFormatter.format(new Date(iso)) : 
 
 export const formatDateTime = (iso) => (iso ? `${formatDate(iso)}, ${formatTime(iso)}` : '-')
 
+/** Format ringkas untuk kartu, contoh "12/11 09.30" (waktu lokal). */
+export function formatShortDateTime(iso) {
+  if (!iso) return '-'
+  const date = new Date(iso)
+  return `${pad(date.getDate())}/${pad(date.getMonth() + 1)} ${pad(date.getHours())}.${pad(date.getMinutes())}`
+}
+
 const pad = (num, size = 2) => String(num).padStart(size, '0')
 
 /** Tanggal lokal dalam format YYYY-MM-DD (dipakai untuk filter dan pengelompokan harian). */

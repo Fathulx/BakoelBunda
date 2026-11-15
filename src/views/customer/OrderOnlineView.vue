@@ -11,6 +11,7 @@ import { ORDER_TYPE_OPTIONS, PAYMENT_METHOD_OPTIONS, ORDER_STATUS_OPTIONS } from
 import { formatCurrency } from '@/utils/format'
 import { earliestDeliveryDate, latestDeliveryDate, isPastCutoff, formatDeliveryDate } from '@/utils/orderDates'
 import { useNow } from '@/composables/useNow'
+import { loadCustomerProfile, saveCustomerProfile, clearCustomerProfile } from '@/composables/useCustomerProfile'
 import EmptyState from '@/components/common/EmptyState.vue'
 import MenuCard from '@/components/features/products/MenuCard.vue'
 import CartPanel from '@/components/features/cart/CartPanel.vue'
@@ -29,7 +30,7 @@ const minDate = computed(() => earliestDeliveryDate(new Date(now.value)))
 const maxDate = computed(() => latestDeliveryDate(new Date(now.value), settings.data))
 const pastCutoff = computed(() => isPastCutoff(new Date(now.value), settings.data.orderCutoffTime))
 
-const checkout = reactive({
+const emptyCheckout = () => ({
   customerName: '',
   customerPhone: '',
   orderType: ORDER_TYPE_OPTIONS[0].value,
@@ -38,6 +39,17 @@ const checkout = reactive({
   note: '',
   paymentMethod: PAYMENT_METHOD_OPTIONS[0].value
 })
+
+// Pelanggan langganan: data dari pesanan terakhir di browser ini langsung terisi.
+const savedProfile = loadCustomerProfile()
+const checkout = reactive({ ...emptyCheckout(), ...savedProfile })
+const usingSavedProfile = ref(Boolean(savedProfile.customerName))
+
+function forgetProfile() {
+  clearCustomerProfile()
+  Object.assign(checkout, emptyCheckout())
+  usingSavedProfile.value = false
+}
 // Jika halaman dibiarkan terbuka melewati tengah malam, tanggal yang dipilih ikut maju.
 watch(minDate, (min) => {
   if (checkout.deliveryDate < min) checkout.deliveryDate = min
@@ -69,6 +81,7 @@ function submitOrder() {
   errors.value = {}
   cart.clear()
   remember(result.order.id)
+  saveCustomerProfile(checkout)
   router.push({ name: 'customer-order-status', params: { id: result.order.id } })
 }
 </script>
@@ -128,6 +141,10 @@ function submitOrder() {
 
     <section class="order__form card" aria-labelledby="checkout-title">
       <h2 id="checkout-title">Data pemesanan</h2>
+      <p v-if="usingSavedProfile" class="saved-profile text-small">
+        Data diisi dari pesanan terakhir Anda.
+        <button type="button" class="saved-profile__clear" @click="forgetProfile">Bukan Anda? Kosongkan</button>
+      </p>
       <CustomerCheckoutForm
         v-model="checkout"
         :total="cart.total"
@@ -187,6 +204,22 @@ function submitOrder() {
     'form cart';
   gap: var(--space-5);
   align-items: start;
+}
+
+.saved-profile {
+  color: var(--color-text-muted);
+}
+
+.saved-profile__clear {
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--color-primary);
+  font: inherit;
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  cursor: pointer;
 }
 
 .order__menu {

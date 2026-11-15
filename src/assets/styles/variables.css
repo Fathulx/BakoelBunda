@@ -11,11 +11,12 @@
   --color-secondary: #c99a4b;      /* bambu kukusan */
   --color-secondary-soft: #f3e9d3;
   --color-chili: #c8321f;          /* sambal: nomor antrean dan harga */
-  --color-success: #2f8f5b;
+  --color-success: #257549;
   --color-success-soft: #e0f1e6;
   --color-warning: #b7791f;
   --color-warning-soft: #f8ecd4;
-  --color-danger: #c8321f;
+  --color-warning-text: #8a5a12;   /* teks peringatan di latar terang (kontras 5:1) */
+  --color-danger: #b42d1c;
   --color-danger-soft: #f8e1dc;
   --color-info: #2a6f97;
   --color-info-soft: #dfecf3;
@@ -25,6 +26,7 @@
   --color-surface: #ffffff;
   --color-border: #d5ddd6;
   --color-border-strong: #b6c2b8;
+  --color-input-border: #87958b;   /* garis kotak isian: kontras min. 3:1 terhadap putih */
   --color-text: #1c2621;           /* tinta */
   --color-text-muted: #5b6a61;
 

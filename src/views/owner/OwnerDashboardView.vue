@@ -49,7 +49,7 @@ function resetDemoData() {
 </script>
 
 <template>
-  <PageHeader title="Dashboard Owner" :subtitle="`Ringkasan hari ini, ${formatDate(now.value)}`">
+  <PageHeader title="Dashboard Owner" :subtitle="`Ringkasan hari ini, ${formatDate(now)}`">
     <BaseButton variant="outline" size="sm" @click="showReset = true">Reset Data Demo</BaseButton>
   </PageHeader>
 

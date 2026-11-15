@@ -52,7 +52,6 @@ flowchart LR
   subgraph AdminRole["Admin"]
     AppLayout --> ActiveOrdersView --> OrderCard
     AppLayout --> HistoryView --> OrderTable
-    OrderCard --> OrderStatusBadge
     OrderCard --> PaymentStatusBadge
     OrderCard --> OrderContact
   end
@@ -82,6 +81,7 @@ Komponen `common/` (BaseButton, BaseInput, BaseSelect, BaseTextarea, BaseTable, 
 | `PageHeader` | semua halaman staf | `title`, `subtitle` | slot aksi |
 | `SearchBar` | menu, katalog, riwayat, pelanggan | `placeholder` | `v-model` |
 | `StatCard` | dashboard, laporan, riwayat | `label`, `value`, `hint`, `variant` | – |
+| `AppIcon` | sidebar, kartu pesanan | `name`, `size` | – |
 | `EmptyState` | semua daftar | `title`, `description` | slot aksi |
 | `MenuCard` | halaman pemesanan, katalog | `product`, `selectable`, `qtyInCart` | `add(productId)` |
 | `OrderCard` | Pesanan Aktif, Antrean Dapur | `order`, `actions`, `today`, `showContact`, `canMarkPaid` | `action({order,status})`, `mark-paid(order)` |
@@ -372,14 +372,18 @@ Sumber: `src/assets/styles/variables.css`. Warna diambil dari dapur dimsum: daun
 | Primary gelap | `--color-primary-dark` | `#154530` |
 | Secondary (bambu kukusan) | `--color-secondary` | `#C99A4B` |
 | Aksen harga & antrean (sambal) | `--color-chili` | `#C8321F` |
-| Sukses | `--color-success` | `#2F8F5B` |
+| Sukses | `--color-success` | `#257549` |
 | Peringatan | `--color-warning` | `#B7791F` |
-| Bahaya | `--color-danger` | `#C8321F` |
+| Teks peringatan | `--color-warning-text` | `#8A5A12` |
+| Bahaya | `--color-danger` | `#B42D1C` |
 | Info | `--color-info` | `#2A6F97` |
 | Latar (uap) | `--color-bg` | `#EEF3EE` |
 | Permukaan kartu | `--color-surface` | `#FFFFFF` |
 | Teks | `--color-text` | `#1C2621` |
 | Teks sekunder | `--color-text-muted` | `#5B6A61` |
+| Garis kotak isian | `--color-input-border` | `#87958B` |
+
+Semua pasangan teks–latar memenuhi kontras WCAG AA (≥ 4.5:1), dan garis kotak isian memenuhi ≥ 3:1.
 
 ### Tipografi
 

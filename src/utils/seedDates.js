@@ -1,5 +1,5 @@
 import { toCompactDate } from '@/utils/format'
-import { addDays, fromDateKey } from '@/utils/orderDates'
+import { addDays, daysBetween } from '@/utils/orderDates'
 
 /**
  * Data seed ditulis untuk satu tanggal acuan (SEED_REFERENCE_DATE). Saat pertama kali dimuat,
@@ -8,8 +8,6 @@ import { addDays, fromDateKey } from '@/utils/orderDates'
  */
 
 const ORDER_TIME_FIELDS = ['createdAt', 'confirmedAt', 'readyAt', 'completedAt', 'cancelledAt', 'paidAt']
-
-export const daysBetween = (fromKey, toKey) => Math.round((fromDateKey(toKey) - fromDateKey(fromKey)) / 86400000)
 
 /** Geser waktu ISO sebanyak `days` hari, jam lokalnya tetap. */
 function shiftIso(iso, days) {
